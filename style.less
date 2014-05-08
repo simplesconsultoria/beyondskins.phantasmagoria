@@ -1,0 +1,624 @@
+/******************************************
+
+ Change values and compile your .less file
+ This will generate your final .css file
+
+******************************************/
+
+// fonts
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Special+Elite);
+
+// Basic Colors
+@main-bg: #000000; 
+@main-color: #285c6a;
+
+// content
+@content-color: #ffffff;
+
+// colunas
+@main-width: 80%;
+@coluna1: 20%;
+@coluna2: 20%;
+
+// header 
+@header: transparent;
+@header-link: #ccc; 
+@header-text: #ccc;
+
+// navegacao
+@nav: #045676;
+@nav-link: #000;
+
+// text and link styles
+@main-font: 'Open Sans', sans-serif;
+@text-font: arial, helvetica, sans-serif;
+@main-text: #000;
+@title-font: 'Open Sans', sans-serif;
+@title-color: #464646;
+@main-link: darken(@main-color, 10%);
+@secondary-link: darken(@main-color, 20%);
+
+
+/******************************************
+
+  You dont need to edit the lines below
+
+******************************************/
+
+/**** GRID ****/
+
+/* Very very simple, semantic and human friendly columns */
+
+/* Column size */
+#main-content {width: auto;}
+#column-one   {width: @coluna1;}
+#column-two   {width: @coluna2;}
+
+/* old fashion table layout */
+#main {display: table; width: 100%;}
+#main-content, #column-one, #column-two {display: table-cell; vertical-align: top;}
+
+/* margin collumns */
+#main-content {padding: 2%;}
+#column-one {padding: 2%;}
+#column-two {padding: 2%;}
+#portal-column-content {width: 100%; margin-left: -100%;}
+
+/**** Basic Styles ****/
+
+// Aditional styles
+@border: darken(@main-bg, 40%) 1px solid;
+.gradient {
+	background: -webkit-linear-gradient(@main-bg, #f1f1f1); /* For Safari */
+	background: -o-linear-gradient(@main-bg, #f1f1f1); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(@main-bg, #f1f1f1); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(@main-bg, #f1f1f1); /* Standard syntax (must be last) */
+}
+.wrapper-size {
+	margin: 0 auto;
+	width: @main-width;
+	max-width: 1200px;
+}
+.shadow {
+	box-shadow: 0 2px 3px #ccc;
+}
+.text-shadow {
+	text-shadow: 1px 1px 2px contrast(@header-link);
+	-webkit-text-stroke: 1px @header-link;
+}
+
+
+/********** Basic styles **********/
+
+body {
+    background: @main-bg url(img/background.jpg) repeat;
+	color: @main-text; 
+	font-family: @main-font;
+	margin: 0;
+}
+  
+ 
+a:link,
+a:visited, 
+#content a:link, 
+dl.portlet a:link {
+	color:@main-link;
+    font-weight: bold;
+}
+.state-published {
+  color:@main-link !important;
+}
+a:hover {
+	color:@secondary-link;
+}
+
+#content a:hover,
+dl.portlet a:hover {
+    color: @secondary-link !important; 
+}
+
+.clear {
+	clear: both;
+}
+
+/********** Main container **********/
+
+#wrapper {
+	.wrapper-size;
+}
+
+#main {
+	background: @content-color;
+	opacity: 0.8;
+	-webkit-box-shadow: 1px 25px 100px 1px #fff;
+    -moz-box-shadow:    1px 25px 100px 1px #fff;
+    box-shadow:         1px 25px 100px 1px #fff;
+	
+}
+
+#user {
+	float: right;
+}
+
+/********** Header **********/
+
+
+#portal-personaltools {
+	position: absolute;
+}
+
+/* area do topo */
+header {
+	background: @header;
+	color: @header-text;
+    border-bottom: 1px solid #f1f1f1;
+}
+header a:link,
+header a:visited {
+    color: @header-link;
+    text-decoration: none;
+}
+header a:hover {
+    color: darken(contrast(@header-link), 10%);
+}
+
+/* banner */
+
+#logo {
+	width: 40%;
+	float: left;
+	padding: 0;
+}
+#logo a {
+	font-family: @title-font;
+	color: @header-link;
+	font-size: 4em;
+	font-weight: bold;
+	line-height: 0.5em;
+}
+
+#logo img {
+	float: left;
+	margin: 0.2em 1em 0.2em 0;
+	max-height: 200px;
+}
+
+#header-text {
+    padding-left: 0;
+    }
+    
+#portal-title {
+font-size:100%;
+text-shadow: 5px 5px 20px;
+font-family:Special Elite;
+padding: 1em 0 0 0;
+}
+
+#portal-description {
+    font-size: 0.3em;
+    font-weight: normal;
+}
+
+/* search */
+#portal-searchbox {
+	width: 45%;
+	position:relative;
+	float: right;
+	text-align: right;
+	padding: 2em 0 1em 0;
+}
+#portal-searchbox input.searchField {
+	border: 1px solid #ccc;
+	padding: 0.5em 0.2em 0.5em 0.2em;
+    width:24em;
+}
+#portal-searchbox input.searchButton {
+	padding: 0.5em;
+	background: #464646;
+	border: none;
+	color: #fff;
+}
+
+#LSResult {
+    background: transparent;
+    color: #000000;
+    display: block;
+    margin-top: 0;
+    right: 0;
+    top:47px;
+    z-index: 1;
+}
+
+#LSShadow {background:#fff; box-shadow:0 0 10px 5px #fff;}
+
+
+/* Navigation */
+
+nav {
+	color: @nav-link;
+	clear: both;
+}
+nav ul {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+nav li {
+	display: table-cell;
+	vertical-align: bottom;
+	background:#0C5072;
+	border-right: 1px solid @nav-link;
+	width: 100%;
+	position: relative;
+    text-align: center;
+}
+nav li li {
+	height: auto;
+	border-right: none;
+}
+nav li a:link {
+    font-size: 90%;
+	text-decoration: none;
+	text-transform:uppercase;
+	display: block;
+	padding: 0.5em;
+}
+nav li:last-child {
+    border: none;
+    padding-right: 0;
+}
+nav li a:link,
+nav li a:visited {
+    color: #fff;
+}
+
+nav li:hover {
+-webkit-box-shadow: 0px 5px 30px 0px #fff;
+-moz-box-shadow:    0px 5px 30px 0px #fff;
+box-shadow:         0px 5px 30px 0px #fff;
+background: @nav;
+z-index:99999;
+}
+
+
+/* DropDown compatibility */
+nav ul.submenu a {
+	background: transparent;
+	color: @nav-link !important;
+}
+nav ul.submenu a:hover {
+	color: #000  !important;
+	background: #fff;
+	opacity: 0.5;
+}
+nav ul {
+	list-style-image:none;
+	position:relative; /* fix ie */
+	zoom:1; /* fix ie */
+}
+nav ul:after {
+	content:"";
+	clear:both;
+	display:block;
+	visibility:hidden;
+}
+nav ul.submenu a {
+	display:block;
+	border: 1px solid #fff;
+}
+nav li:hover > ul.submenu {
+	display:block;
+}
+ul.submenu {
+	display:none;
+	left: -1px;
+	position:absolute;
+	top:100%;
+	z-index: 2;
+	border: none;
+	width: 12em;
+	box-shadow: 0px 3px 5px #ccc;
+}
+nav ul li:hover > ul.submenu {
+	display:block;
+}
+ul.submenu li {
+	float:none;
+	position: relative;
+	display: block;
+	text-align: left;
+	width: 12em;
+}
+
+nav ul ul.submenu li a {
+	padding:0.7em 1.5em 0.7em 1em;
+}
+ul.submenu ul {
+	top:0;
+	left: 100%;
+	right: auto;
+ }
+nav li:nth-child(6) ul.submenu ul,
+nav li:nth-child(7) ul.submenu ul,
+nav li:nth-child(8) ul.submenu ul {
+ 	left: auto;
+	right: 100%;
+ }
+ ul.submenu a.state-published:hover,
+.selected ul.submenu .state-published {
+    color: #000 !important;
+}
+
+
+/********** Content **********/
+/* breadcrumb */
+#portal-breadcrumbs {
+	font-size: 80%;
+	clear: both;
+	color: #fff;
+}
+#portal-breadcrumbs a, .breadcrumbSeparator {
+	color: #fff;
+}
+.section-front-page #portal-breadcrumbs {
+    display: none;
+}
+
+/* text styles */
+p {
+	line-height: 1.4em;
+	font-family: @text-font;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Special Elite;
+	font-weight: normal;
+}
+
+h1 {
+    color: @title-color;
+    border: none;
+    margin-bottom: 0.6em;
+    margin-top: 0;
+    font-size: 2.5em;
+    line-height: 1em;
+}
+h2 {
+    color: @title-color;
+    line-height: 1.2em;
+	margin-bottom: 0.5em;
+    margin-top: 12px;
+}
+#content .documentDescription, #content #description {
+    color: lighten(@main-text, 10%); 
+    font-weight: normal;
+    margin-bottom: 1em;
+}
+
+/********** Tiles **********/
+.tile img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* galeria */
+.cover-carousel-tile {
+	margin-bottom: 2em;
+}
+.galleria-stage {
+	top: 0;
+	left: 0;
+	right: 0;
+}
+.galleria-info-text {
+	padding: 0;
+}
+.galleria-info-title {
+	font: bold 2em/1.1 @title-font;
+	font-weight: normal;
+}
+.galleria-info-description {
+	font: normal 1em/1.4 @text-font;
+	margin: 0;
+	color: @main-text;
+}
+
+/*********** Portlets ***********/
+
+/* general styles */
+.portletHeader,
+dl.portlet dt.portletHeader {
+    border-bottom: @border;
+	font-weight: bold;
+    background: transparent;
+    color: @title-color;
+}
+.portletHeader a,
+dl.portlet dt.portletHeader a {
+    color: @title-color;
+}
+.portlet {
+    margin-bottom: 2em;
+    padding: 4px 0;
+}
+
+/* lists inside columns */
+aside dl, 
+aside dd, 
+aside ul {
+	padding: 0;
+	margin: 0;
+}
+aside a {
+	text-decoration: none;
+}
+
+/* portlet navigation */
+.portletNavigationTree ul {
+	margin: 0;
+}
+.portletNavigationTree li {
+	list-style-position: inside;
+}
+.portletNavigationTree .navTreeLevel0>li {
+	border-bottom: @border !important;
+	list-style: none;
+}
+.portletNavigationTree a {
+	display: block;
+	padding: 0.3em 0.3em 0.3em 0.5em;
+}
+
+.navTreeLevel2 a {padding-left: 1em;}
+.navTreeLevel3 a {padding-left: 2em;}
+.navTreeLevel4 a {padding-left: 3em;}
+.navTreeLevel5 a {padding-left: 4em;}
+.navTreeLevel6 a {padding-left: 5em;}
+
+
+/********** Config bugs *************/
+.label,.badge {
+	color: @main-text;
+	text-shadow: 0;
+	background-color: transparent;
+}
+.label:empty, .badge:empty {
+	display: inline;
+}
+
+
+/********** Footer **********/
+footer {
+	padding: 0;
+    font-size: 80%;
+    background: #000;
+    margin-top:96px;
+    -webkit-box-shadow: 0 -18px 30px 50px #000000;
+    -moz-box-shadow:    0 -18px 30px 50px #000000;
+    box-shadow:        0 -18px 30px 50px #000000;
+}
+
+footer a {
+	color: #fff !important;
+}
+
+#footer-info, #portal-siteactions {
+	text-align:left;
+	background-color: transparent;
+	color: #fff;
+	padding: 1em;
+	margin:0;
+}
+
+
+/**** RESPONSIVE ***/
+
+#btnav i {
+	display:none;
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+
+  
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+	body {
+		background-image: none;
+	}
+	#wrapper {
+		width: 90%;
+	}
+	#main {
+		margin-top: 4em; 
+		display: block;
+	}
+	div.cell {
+		float: none;
+		left: 100%;
+		width: 100% !important;
+		margin-left: -100% !important;
+	}
+	#logo { 
+		float: right;
+	}
+	#portal-breadcrumbs {
+		display:none;
+	}
+	#main-header {
+		height:45px;
+	}
+	#logo a img {
+		margin-top: 5px;
+		width: 2em;
+		height: auto;
+		top: 0;
+		position: absolute;
+	}
+	#portal-searchbox {
+		display: none;
+	}
+	#btnav {
+		width:153px;
+		height:40px;
+		display:block;
+		top:0;
+		position:absolute;
+	}
+	#btnav ul {
+		display:none;
+	}
+	ul.submenu {
+		display: none !important;
+	}
+	nav li {
+		display: block;
+		height: auto;
+		width: 100%;
+	}
+	div:hover#btnav ul {
+		padding-top:10px;
+		display:block;
+		top:40px;
+		position:absolute;
+		background:@nav;
+	}
+	div:hover#btnav ul li a {
+		padding:10px;
+	}
+	#btnav i {
+		display:block;
+		font-size: 2em;
+		padding-top:10px;
+		color: #888;
+	}
+	header > div {
+		width:93%;
+	}
+	#main-content, #column-one, #column-two {
+	    display: block;
+	    float: none;
+	    width: 100%;
+	}
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	#logo {
+		width: 70%;
+	}
+	div.cell {
+		float: none;
+		width: 100% !important;
+		margin-left: -100% !important;
+	}
+	footer {
+		padding-left: 2em;
+		padding-right: 2em;
+	}
+}
