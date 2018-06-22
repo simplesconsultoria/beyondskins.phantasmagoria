@@ -18,7 +18,7 @@
 
   <genericsetup:registerProfile
       name="uninstall"
-      title="beyondskins.phantasmagoria: Uninstall profile for Plone 4 Diazo Theme"
+      title="beyondskins.phantasmagoria Uninstall"
       directory="profiles/uninstall"
       description="Uninstalls the beyondskins.phantasmagoria package"
       provides="Products.GenericSetup.interfaces.EXTENSION"
