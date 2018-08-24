@@ -4,6 +4,8 @@ Changelog
 0.1dev (unreleased)
 -------------------
 
+- Updated URL html5shiv library for HTML file [macagua]
+
 - Added HTML5 validation for HTML file [macagua]
 
 - Updated Diazo manifest file [macagua]
